@@ -1,0 +1,10 @@
+{
+  "id": "pdf-api-translator",
+  "name": "PDF API Translator",
+  "version": "1.0.0",
+  "minAppVersion": "1.5.0",
+  "description": "Translate selected English PDF text into Simplified Chinese using GPT or DeepSeek APIs.",
+  "author": "Codex",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
