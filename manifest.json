@@ -1,9 +1,9 @@
 {
-  "id": "pdf-api-translator",
-  "name": "PDF API Translator",
-  "version": "1.0.0",
+  "id": "pdf-api-translator-modular",
+  "name": "PDF API Translator Modular",
+  "version": "0.1.1",
   "minAppVersion": "1.5.0",
-  "description": "Translate selected English PDF text into Simplified Chinese using GPT or DeepSeek APIs.",
+  "description": "A modular PDF selection tool for translation and note saving with GPT or DeepSeek APIs.",
   "author": "Codex",
   "authorUrl": "",
   "isDesktopOnly": false
