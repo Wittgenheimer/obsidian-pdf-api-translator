@@ -41,6 +41,7 @@ bundle += "const __externalRequire = require;\n";
 bundle += "const __modules = {\n";
 for (const [id, code] of modules.entries()) {
   bundle += JSON.stringify(id) + ": function(module, exports, __require, __externalRequire) {\n";
+  bundle += "const require = (request) => __require(request, " + JSON.stringify(id) + ");\n";
   bundle += code.trimEnd() + "\n";
   bundle += "},\n";
 }
@@ -75,7 +76,7 @@ bundle += "  __cache[resolved] = module;\n";
 bundle += "  factory(module, module.exports, (request) => __require(request, resolved), __externalRequire);\n";
 bundle += "  return module.exports;\n";
 bundle += "}\n";
-bundle += "const pluginModule = __require('./' + entry, '');\n";
+bundle += "const pluginModule = __require('./" + entry + "', '');\n";
 bundle += "module.exports = pluginModule.default || pluginModule;\n";
 bundle += "})();\n";
 

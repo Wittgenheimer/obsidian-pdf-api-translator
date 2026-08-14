@@ -3,6 +3,7 @@
 const __externalRequire = require;
 const __modules = {
 "src/bootstrap.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/bootstrap.js");
 const { Plugin, requestUrl, Notice } = require("obsidian");
 const { EventBus } = require("src/core/EventBus.js");
 const { SettingsModule } = require("src/core/SettingsModule.js");
@@ -158,6 +159,7 @@ module.exports = class PdfApiTranslatorModularPlugin extends Plugin {
 };
 },
 "src/core/EventBus.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/core/EventBus.js");
 class EventBus {
   constructor() {
     this.listeners = new Map();
@@ -186,6 +188,7 @@ class EventBus {
 module.exports = { EventBus };
 },
 "src/core/SettingsModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/core/SettingsModule.js");
 const { DEFAULT_SETTINGS } = require("src/core/defaults.js");
 
 class SettingsModule {
@@ -269,6 +272,7 @@ class SettingsModule {
 module.exports = { SettingsModule };
 },
 "src/core/defaults.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/core/defaults.js");
 const VIEW_TYPE_TRANSLATOR = "pdf-api-translator-modular-sidebar";
 
 const DEFAULT_SETTINGS = {
@@ -305,6 +309,7 @@ module.exports = {
 };
 },
 "src/core/ApiModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/core/ApiModule.js");
 class ApiModule {
   constructor(settingsModule, requestUrl) {
     this.settingsModule = settingsModule;
@@ -372,6 +377,7 @@ class ApiModule {
 module.exports = { ApiModule };
 },
 "src/core/SelectionModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/core/SelectionModule.js");
 const { SentenceSplitter } = require("src/core/SentenceSplitter.js");
 
 class SelectionModule {
@@ -580,6 +586,7 @@ class SelectionModule {
 module.exports = { SelectionModule };
 },
 "src/core/SentenceSplitter.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/core/SentenceSplitter.js");
 class SentenceSplitter {
   split(text) {
     const normalized = String(text || "").replace(/\s+/g, " ").trim();
@@ -641,6 +648,7 @@ class SentenceSplitter {
 module.exports = { SentenceSplitter };
 },
 "src/services/TextService.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/services/TextService.js");
 class TextService {
   constructor(settingsModule) {
     this.settingsModule = settingsModule;
@@ -669,6 +677,7 @@ class TextService {
 module.exports = { TextService };
 },
 "src/services/TimeService.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/services/TimeService.js");
 class TimeService {
   pad(value) {
     return String(value).padStart(2, "0");
@@ -694,6 +703,7 @@ class TimeService {
 module.exports = { TimeService };
 },
 "src/services/VaultService.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/services/VaultService.js");
 const { TFolder, TFile } = require("obsidian");
 
 class VaultService {
@@ -747,6 +757,7 @@ class VaultService {
 module.exports = { VaultService };
 },
 "src/services/WorkspaceService.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/services/WorkspaceService.js");
 class WorkspaceService {
   constructor(app) {
     this.app = app;
@@ -795,6 +806,7 @@ class WorkspaceService {
 module.exports = { WorkspaceService };
 },
 "src/features/public-window/PublicActionWindow.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/public-window/PublicActionWindow.js");
 class PublicActionWindow {
   constructor({ eventBus, settingsModule }) {
     this.eventBus = eventBus;
@@ -1040,6 +1052,7 @@ class PublicActionWindow {
 module.exports = { PublicActionWindow };
 },
 "src/features/translate/PromptModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/translate/PromptModule.js");
 class PromptModule {
   constructor(settingsModule) {
     this.settingsModule = settingsModule;
@@ -1115,6 +1128,7 @@ class PromptModule {
 module.exports = { PromptModule };
 },
 "src/features/translate/TranslateServiceModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/translate/TranslateServiceModule.js");
 class TranslateServiceModule {
   constructor({ apiModule, promptModule }) {
     this.apiModule = apiModule;
@@ -1194,6 +1208,7 @@ class TranslateServiceModule {
 module.exports = { TranslateServiceModule };
 },
 "src/features/translate/SegmentTranslateModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/translate/SegmentTranslateModule.js");
 const { SentenceSplitter } = require("src/core/SentenceSplitter.js");
 
 class SegmentTranslateModule {
@@ -1393,6 +1408,7 @@ class SegmentTranslateModule {
 module.exports = { SegmentTranslateModule };
 },
 "src/features/translate/segment/SegmentTranslateController.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/translate/segment/SegmentTranslateController.js");
 class SegmentTranslateController {
   constructor({ segmentTranslateModule, translateService }) {
     this.segmentTranslateModule = segmentTranslateModule;
@@ -1575,6 +1591,7 @@ class SegmentTranslateController {
 module.exports = { SegmentTranslateController };
 },
 "src/features/translate/TranslationPopupModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/translate/TranslationPopupModule.js");
 const { Notice, setIcon } = require("obsidian");
 const { SegmentCardRenderer } = require("src/features/translate/segment/SegmentCardRenderer.js");
 
@@ -1954,6 +1971,7 @@ class TranslationPopupModule {
 module.exports = { TranslationPopupModule };
 },
 "src/features/translate/segment/SegmentCardRenderer.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/translate/segment/SegmentCardRenderer.js");
 class SegmentCardRenderer {
   constructor({ animationDuration = 720, animationStagger = 130 } = {}) {
     this.container = null;
@@ -2307,6 +2325,7 @@ class SegmentCardRenderer {
 module.exports = { SegmentCardRenderer };
 },
 "src/features/translate/TranslatorSidebarView.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/translate/TranslatorSidebarView.js");
 const { ItemView, setIcon } = require("obsidian");
 const { VIEW_TYPE_TRANSLATOR } = require("src/core/defaults.js");
 const { SegmentCardRenderer } = require("src/features/translate/segment/SegmentCardRenderer.js");
@@ -2489,6 +2508,7 @@ class TranslatorSidebarView extends ItemView {
 module.exports = { TranslatorSidebarView };
 },
 "src/features/translate/SidebarTranslateModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/translate/SidebarTranslateModule.js");
 const { Notice } = require("obsidian");
 const { VIEW_TYPE_TRANSLATOR } = require("src/core/defaults.js");
 
@@ -2738,6 +2758,7 @@ class SidebarTranslateModule {
 module.exports = { SidebarTranslateModule };
 },
 "src/features/translate/TranslateFeature.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/translate/TranslateFeature.js");
 class TranslateFeature {
   constructor({ settingsModule, popupModule, sidebarModule, eventBus }) {
     this.settingsModule = settingsModule;
@@ -2804,6 +2825,7 @@ class TranslateFeature {
 module.exports = { TranslateFeature };
 },
 "src/features/save/NoteFormatter.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/save/NoteFormatter.js");
 class NoteFormatter {
   formatSelection(text, translation = "") {
     const parts = [(text || "").trim()];
@@ -2833,6 +2855,7 @@ class NoteFormatter {
 module.exports = { NoteFormatter };
 },
 "src/features/save/NoteTargetModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/save/NoteTargetModule.js");
 const { NotePickerModal } = require("src/features/save/NotePickerModal.js");
 
 class NoteTargetModule {
@@ -2907,6 +2930,7 @@ class NoteTargetModule {
 module.exports = { NoteTargetModule };
 },
 "src/features/save/NotePickerModal.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/save/NotePickerModal.js");
 const { Modal } = require("obsidian");
 
 class NotePickerModal extends Modal {
@@ -2987,6 +3011,7 @@ class NotePickerModal extends Modal {
 module.exports = { NotePickerModal };
 },
 "src/features/save/OpenModeModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/save/OpenModeModule.js");
 class OpenModeModule {
   constructor({ settingsModule, workspaceService }) {
     this.settingsModule = settingsModule;
@@ -3001,6 +3026,7 @@ class OpenModeModule {
 module.exports = { OpenModeModule };
 },
 "src/features/save/SaveWriterModule.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/save/SaveWriterModule.js");
 class SaveWriterModule {
   constructor({ vaultService, formatter }) {
     this.vaultService = vaultService;
@@ -3019,6 +3045,7 @@ class SaveWriterModule {
 module.exports = { SaveWriterModule };
 },
 "src/features/save/SaveFeature.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/features/save/SaveFeature.js");
 const { Notice } = require("obsidian");
 
 class SaveFeature {
@@ -3178,6 +3205,7 @@ class SaveFeature {
 module.exports = { SaveFeature };
 },
 "src/ui/SettingsTab.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/ui/SettingsTab.js");
 const { PluginSettingTab } = require("obsidian");
 const { ApiSettingsSection } = require("src/ui/settings/ApiSettingsSection.js");
 const { TranslateSettingsSection } = require("src/ui/settings/TranslateSettingsSection.js");
@@ -3211,6 +3239,7 @@ class SettingsTab extends PluginSettingTab {
 module.exports = { SettingsTab };
 },
 "src/ui/settings/ApiSettingsSection.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/ui/settings/ApiSettingsSection.js");
 const { Setting } = require("obsidian");
 
 class ApiSettingsSection {
@@ -3254,6 +3283,7 @@ class ApiSettingsSection {
 module.exports = { ApiSettingsSection };
 },
 "src/ui/settings/TranslateSettingsSection.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/ui/settings/TranslateSettingsSection.js");
 const { Setting } = require("obsidian");
 const { DEFAULT_SETTINGS } = require("src/core/defaults.js");
 
@@ -3301,6 +3331,7 @@ class TranslateSettingsSection {
 module.exports = { TranslateSettingsSection };
 },
 "src/ui/settings/SaveSettingsSection.js": function(module, exports, __require, __externalRequire) {
+const require = (request) => __require(request, "src/ui/settings/SaveSettingsSection.js");
 const { Setting } = require("obsidian");
 const { DEFAULT_SETTINGS } = require("src/core/defaults.js");
 
@@ -3382,6 +3413,6 @@ function __require(id, fromId) {
   factory(module, module.exports, (request) => __require(request, resolved), __externalRequire);
   return module.exports;
 }
-const pluginModule = __require('./' + entry, '');
+const pluginModule = __require('./src/bootstrap.js', '');
 module.exports = pluginModule.default || pluginModule;
 })();
