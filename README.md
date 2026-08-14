@@ -37,7 +37,7 @@ src/
 Copy this folder into:
 
 ```text
-<vault>/.obsidian/plugins/pdf-api-translator-modular
+<vault>/.obsidian/plugins
 ```
 
 Then enable `PDF API Translator Modular` in Obsidian community plugins.
